@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D75B027F-E598-417F-B8F0-B44DE782857A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>test_dbms</RootNamespace>
+    <AssemblyName>test-dbms</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\buffer\BasicBufferMgr.cs" />
+    <Compile Include="src\buffer\Buffer.cs" />
+    <Compile Include="src\buffer\BufferAbortException.cs" />
+    <Compile Include="src\buffer\BufferMgr.cs" />
+    <Compile Include="src\buffer\PageFormatter.cs" />
+    <Compile Include="src\file\Block.cs" />
+    <Compile Include="src\file\FileMgr.cs" />
+    <Compile Include="src\file\Page.cs" />
+    <Compile Include="src\log\BasicLogRecord.cs" />
+    <Compile Include="src\log\LogIterator.cs" />
+    <Compile Include="src\log\LogMgr.cs" />
+    <Compile Include="src\server\SimpleDB.cs" />
+    <Compile Include="src\tx\BufferList.cs" />
+    <Compile Include="src\tx\cocurrency\CocurrencyMgr.cs" />
+    <Compile Include="src\tx\cocurrency\LockAbortException.cs" />
+    <Compile Include="src\tx\cocurrency\LockTable.cs" />
+    <Compile Include="src\tx\recovery\CheckpointRecord.cs" />
+    <Compile Include="src\tx\recovery\CommitRecord.cs" />
+    <Compile Include="src\tx\recovery\LogRecord.cs" />
+    <Compile Include="src\tx\recovery\LogRecordIterator.cs" />
+    <Compile Include="src\tx\recovery\RecoveryMgr.cs" />
+    <Compile Include="src\tx\recovery\RollbackRecord.cs" />
+    <Compile Include="src\tx\recovery\SetIntRecord.cs" />
+    <Compile Include="src\tx\recovery\SetStringRecord.cs" />
+    <Compile Include="src\tx\recovery\StartRecord.cs" />
+    <Compile Include="src\tx\Transaction.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
