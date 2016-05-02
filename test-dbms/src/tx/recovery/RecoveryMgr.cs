@@ -38,7 +38,7 @@ namespace test_dbms.src.tx.recovery
         }
 
         public int setInt(Buffer buff, int offset, int newval)
-        {//写一条SETINT日志并且返回LSN，更新到临时文件的值会被记录成假LSN，产生临时日志记录，不会被写回磁盘
+        {//写一条SETINT日志，将旧值写回日志并且返回LSN，更新到临时文件的值会被记录成假LSN，产生临时日志记录，不会被写回磁盘,newval在这里没什么实际用。。。
             int oldval = buff.getInt(offset);
             Block blk = buff.block();
             if (isTempBlock(blk))

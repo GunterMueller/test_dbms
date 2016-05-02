@@ -7,7 +7,9 @@ namespace test_dbms.src.tx
 {
     class BufferList
     {//管理当前事务正被绑定着的缓冲片
+        //buffers保存当前事务关联的Buffer
         private Dictionary<Block, Buffer> buffers = new Dictionary<Block, Buffer>();
+        //pins保存当前事务涉及的磁盘块
         private List<Block> pins = new List<Block>();
         private BufferMgr bufferMgr = SimpleDB.bufferMgr();
 

@@ -3,7 +3,7 @@ using test_dbms.src.file;
 
 namespace test_dbms.src.tx.cocurrency
 {
-    class CocurrencyMgr
+    class ConcurrencyMgr
     {/* 用static维护一个全局得到的LockTable，所有事务共享这一个LockTable
       * 维护了一个<Block,string>的字典，标记block上是什么锁
       */ 

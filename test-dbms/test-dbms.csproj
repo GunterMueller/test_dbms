@@ -53,9 +53,9 @@
     <Compile Include="src\log\LogMgr.cs" />
     <Compile Include="src\server\SimpleDB.cs" />
     <Compile Include="src\tx\BufferList.cs" />
-    <Compile Include="src\tx\cocurrency\CocurrencyMgr.cs" />
-    <Compile Include="src\tx\cocurrency\LockAbortException.cs" />
-    <Compile Include="src\tx\cocurrency\LockTable.cs" />
+    <Compile Include="src\tx\concurrency\ConcurrencyMgr.cs" />
+    <Compile Include="src\tx\concurrency\LockAbortException.cs" />
+    <Compile Include="src\tx\concurrency\LockTable.cs" />
     <Compile Include="src\tx\recovery\CheckpointRecord.cs" />
     <Compile Include="src\tx\recovery\CommitRecord.cs" />
     <Compile Include="src\tx\recovery\LogRecord.cs" />
