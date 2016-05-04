@@ -27,7 +27,7 @@ namespace test_dbms.src.tx
         }
 
         public Block pinNew(string filename, PageFormatter fmtr)
-        {//将一个新的block添加到指定文件，然后绑定到缓冲区
+        {//将一个新的block添加到指定文件，先绑定文件，然后从文件中读一个块到缓冲区并绑定
             Buffer buff = bufferMgr.pinNew(filename, fmtr);
             Block blk = buff.block();
             buffers.Add(blk, buff);
