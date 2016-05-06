@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace test_dbms.src.query
 {
-    class Constant
-    {
+    public interface Constant : IComparable<Constant>
+    {//接口：代表数据库中存储的值信息
+        object asCsharpVal();
+
     }
 }
