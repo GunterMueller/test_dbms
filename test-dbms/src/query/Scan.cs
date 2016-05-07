@@ -18,7 +18,7 @@ namespace test_dbms.src.query
         //返回当前记录中指定整数字段的值 —— 整数
         int getInt(string fldname);
 
-        //返回当前记录中指定字符串字段的值 —— 字符串
+        //返回当前记录中指定字段字符串的值 —— 字符串
         string getString(string fldname);
         
         //如果scan有指定的字段名称，则返回true
