@@ -3,7 +3,7 @@ A teaching relational DBMS
 
 
 ### Introduction
-A version of C# implementation refered to [Edward Sciore](http://www.cs.bc.edu/~sciore/) called [simpledb](http://www.cs.bc.edu/~sciore/simpledb/)
+A version of C# implementation about the project refered to [Edward Sciore](http://www.cs.bc.edu/~sciore/) called [simpleDB](http://www.cs.bc.edu/~sciore/simpledb/)
 
 
 ### Reference
