@@ -6,7 +6,7 @@ namespace test_dbms.src.query
         //将扫描scan定位到第一条记录之前
         void beforeFirst();
 
-        //移动扫描scan到下一位
+        //移动扫描scan到下一位，若没有下一个则返回false
         bool next();
 
         //关闭扫描scan和它的子扫描（如果有的话）
