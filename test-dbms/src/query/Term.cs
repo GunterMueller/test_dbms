@@ -17,7 +17,7 @@ namespace test_dbms.src.query
         {//选择term，能够减少查询结果输出记录数的程度，若为2，说明term减少了输出的一半
             string lhsName, rhsName;
             if (lhs.isFieldName() && rhs.isFieldName())
-            {//若两者都是字段名称，那么返回当前要查询的distinctValues较大的
+            {//若两者都是字段名称，那么返回当前非重复记录数较大的
                 lhsName = lhs.asFieldName();
                 rhsName = rhs.asFieldName();
                 return Math.Max(p.distinctValues(lhsName), p.distinctValues(rhsName));

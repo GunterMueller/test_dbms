@@ -51,6 +51,13 @@
     <Compile Include="src\log\BasicLogRecord.cs" />
     <Compile Include="src\log\LogIterator.cs" />
     <Compile Include="src\log\LogMgr.cs" />
+    <Compile Include="src\metadata\IndexInfo.cs" />
+    <Compile Include="src\metadata\IndexMgr.cs" />
+    <Compile Include="src\metadata\MetadataMgr.cs" />
+    <Compile Include="src\metadata\StatInfo.cs" />
+    <Compile Include="src\metadata\StatMgr.cs" />
+    <Compile Include="src\metadata\TableMgr.cs" />
+    <Compile Include="src\metadata\ViewMgr.cs" />
     <Compile Include="src\parse\BadSyntaxException.cs" />
     <Compile Include="src\parse\CreateIndexData.cs" />
     <Compile Include="src\parse\CreateTableData.cs" />
