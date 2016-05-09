@@ -3,11 +3,10 @@ A teaching relational DBMS
 
 
 ### Introduction
-A version of C# implementation refered to [Edward Sciore](http://www.cs.bc.edu/~sciore/) called [simpledb](http://www.cs.bc.edu/~sciore/simpledb/)
+A version of C# implementation about the project refered to [Edward Sciore](http://www.cs.bc.edu/~sciore/) called [simpleDB](http://www.cs.bc.edu/~sciore/simpledb/)
 
 
 ### Reference
-* [Database System 系列](http://www.cnblogs.com/YFYkuner/category/285651.html)：感谢作者对系统的讲解，让我收获很多
 
 * [《数据库系统实现》](https://book.douban.com/subject/4838430/)：这一本比较注重理论，需要用到的相关知识很多，推荐做过这个系统之后阅读
 
