@@ -53,7 +53,7 @@ namespace test_dbms.src.metadata
                 fcatfile.setString("fldname", fldname);
                 fcatfile.setInt("type", sch.type(fldname));
                 fcatfile.setInt("length", sch.length(fldname));
-                fcatfile.setInt("offset", sch.offset(fldname));
+                fcatfile.setInt("offset", ti.offset(fldname));
             }
             fcatfile.close();
         }

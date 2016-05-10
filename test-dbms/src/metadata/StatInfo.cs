@@ -23,7 +23,7 @@ namespace test_dbms.src.metadata
         }
 
         public int distinctValues(string fldname)
-        {//对指定字段名称返回非重复记录数的估计值，这是一个经验估计值
+        {//返回指定字段名称下，非重复记录数的估计值，这是一个经验估计值
             return 1 + (numRecs / 3);
         }
 
