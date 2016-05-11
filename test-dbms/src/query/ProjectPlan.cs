@@ -1,12 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using test_dbms.src.record;
 
 namespace test_dbms.src.query
 {
-    class ProjectPlan
+    public class ProjectPlan : Plan
     {
+        private Plan p;
+        private Schema sch = new Schema();
+
+        public ProjectPlan(Plan p, ICollection<string> fieldlist)
+        {
+            this.p = p;
+            foreach (string fldname in fieldlist)
+                sch.add(fldname, p.schema());
+        }
+
+        public Scan open()
+        {
+            Scan s = p.open();
+            return new ProjectScan(s, sch.fields());
+        }
+
+        public int blockAccessed()
+        {
+            return p.blockAccessed();
+        }
+
+        public int recordsOutput()
+        {
+            return p.recordsOutput();
+        }
+
+        public int distinctValues(string fldname)
+        {
+            return p.distinctValues(fldname);
+        }
+
+        public Schema schema()
+        {
+            return sch;
+        }
+
     }
 }
