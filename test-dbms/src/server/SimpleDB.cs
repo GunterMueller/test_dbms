@@ -2,6 +2,7 @@
 using test_dbms.src.log;
 using test_dbms.src.buffer;
 using test_dbms.src.tx;
+using test_dbms.src.metadata;
 
 
 namespace test_dbms.src.server
@@ -17,6 +18,21 @@ namespace test_dbms.src.server
         private static BufferMgr bm;
         private static MetadataMgr mdm;
 
+        public static void init(string dirname)
+        {
+            initFileLogAndBufferMgr(dirname);
+            Transaction tx = new Transaction();
+            bool isnew = fm.isNew();
+            if (isnew)
+                System.Console.WriteLine("creating new database");
+            else
+            {
+                System.Console.WriteLine("recovering existing database");
+                tx.recover();
+            }
+            initMetadataMgr(isnew, tx);
+            tx.commit();         
+        }
 
         public static void initFileMgr(string dirname)
         {
@@ -35,12 +51,18 @@ namespace test_dbms.src.server
             bm = new BufferMgr(BUFFER_SIZE);
         }
 
+        public static void initMetadataMgr(bool isnew, Transaction tx)
+        {
+            mdm = new MetadataMgr(isnew, tx);
+        }
+
         public static FileMgr fileMgr() { return fm; }
 
         public static LogMgr logMgr() { return logm; }
 
         public static BufferMgr bufferMgr() { return bm; }
 
+        public static MetadataMgr mdMgr() { return mdm; }
 
     }
 }
