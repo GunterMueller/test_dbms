@@ -48,16 +48,32 @@
     <Compile Include="src\file\Block.cs" />
     <Compile Include="src\file\FileMgr.cs" />
     <Compile Include="src\file\Page.cs" />
+    <Compile Include="src\index\hash\HashIndex.cs" />
+    <Compile Include="src\index\index.cs" />
     <Compile Include="src\log\BasicLogRecord.cs" />
     <Compile Include="src\log\LogIterator.cs" />
     <Compile Include="src\log\LogMgr.cs" />
-    <Compile Include="src\metadata\IndexInfo.cs" />
-    <Compile Include="src\metadata\IndexMgr.cs" />
-    <Compile Include="src\metadata\MetadataMgr.cs" />
-    <Compile Include="src\metadata\StatInfo.cs" />
-    <Compile Include="src\metadata\StatMgr.cs" />
-    <Compile Include="src\metadata\TableMgr.cs" />
-    <Compile Include="src\metadata\ViewMgr.cs" />
+    <Compile Include="src\metadata\IndexInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\metadata\IndexMgr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\metadata\MetadataMgr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\metadata\StatInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\metadata\StatMgr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\metadata\TableMgr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\metadata\ViewMgr.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\parse\BadSyntaxException.cs" />
     <Compile Include="src\parse\CreateIndexData.cs" />
     <Compile Include="src\parse\CreateTableData.cs" />
@@ -108,6 +124,11 @@
     <Compile Include="src\tx\recovery\SetStringRecord.cs" />
     <Compile Include="src\tx\recovery\StartRecord.cs" />
     <Compile Include="src\tx\Transaction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\index\btree\" />
+    <Folder Include="src\index\planner\" />
+    <Folder Include="src\index\query\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

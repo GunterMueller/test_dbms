@@ -19,6 +19,11 @@ namespace test_dbms.src.query
             rf.beforeFirst();
         }
 
+        public bool next()
+        {
+            return rf.next();
+        }
+
         public void close()
         {
             rf.close();
