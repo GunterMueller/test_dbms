@@ -43,7 +43,7 @@ namespace test_dbms.src.parse
             keywords.Add("index");
             keywords.Add("on");     
         }
-        
+//---------------------------------------------------------------------------   
         public Lexer(string s)
         {
             initKeywords();
