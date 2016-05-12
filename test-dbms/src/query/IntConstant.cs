@@ -10,7 +10,7 @@ namespace test_dbms.src.query
             val = n;
         }
 
-        object asCsharpVal()
+        public object asCsharpVal()
         {
             return val;
         }

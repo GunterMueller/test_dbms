@@ -86,7 +86,7 @@ namespace test_dbms.src.query
             return rf.currentRid();
         }
 
-        public void moveTo(RID rid)
+        public void moveToRid(RID rid)
         {
             rf.moveToRid(rid);
         }

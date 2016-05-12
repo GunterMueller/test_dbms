@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace test_dbms.src.file
 {
-    class FileMgr
+    public class FileMgr
     {
         private string dbDirectory;
         private bool isnew;

@@ -3,7 +3,7 @@ using test_dbms.src.record;
 
 namespace test_dbms.src.query
 {
-    class Predicate
+    public class Predicate
     {//一个predicate就是一组 term 的布尔值
         private List<Term> terms = new List<Term>();
 

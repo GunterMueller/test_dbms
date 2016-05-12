@@ -9,7 +9,7 @@ namespace test_dbms.src.query
         Scan open();
 
         //当scan读取完成时，返回一个块访问数的估计值
-        int blockAccessed();
+        int blocksAccessed();
 
         //返回一个查询结果输出记录数的估计值
         int recordsOutput();

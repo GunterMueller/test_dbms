@@ -7,7 +7,7 @@ namespace test_dbms.src.log
 {
     /*底层的日志管理器，负责向日志文件中写记录，日志记录可以是任意整数和字符串的值组合，
       且日志记录被test_dbms.src.tx.recovery.RecoveryMgr读和写*/
-    public class LogMgr : IEnumerator<BasicLogRecord>
+    public class LogMgr : IEnumerable<BasicLogRecord>
     {
         internal const int LAST_POS = 0;//当前页中最后整数的位置，0表示指针指向当前页的第一个值（字符串或整数）
 
@@ -24,9 +24,7 @@ namespace test_dbms.src.log
             this.logfile = logfile;
             int logsize = SimpleDB.fileMgr().size(logfile);
             if(logsize == 0)
-            {
                 appendNewBlock();
-            }
             else
             {
                 currentblk = new Block(logfile, logsize - 1);

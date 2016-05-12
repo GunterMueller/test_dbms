@@ -21,9 +21,9 @@ namespace test_dbms.src.query
             return new ProjectScan(s, sch.fields());
         }
 
-        public int blockAccessed()
+        public int blocksAccessed()
         {
-            return p.blockAccessed();
+            return p.blocksAccessed();
         }
 
         public int recordsOutput()

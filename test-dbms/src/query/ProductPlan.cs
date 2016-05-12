@@ -24,7 +24,7 @@ namespace test_dbms.src.query
 
         public int blocksAccessed()
         {//计算叉积运算用到的块：B(product(p1,p2)) = B(p1) + R(p1)*B(p2)
-            return p1.blockAccessed() + p1.recordsOutput() * p2.blockAccessed();
+            return p1.blocksAccessed() + p1.recordsOutput() * p2.blocksAccessed();
         }
 
         public int recordsOutput()
