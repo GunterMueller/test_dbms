@@ -82,11 +82,5 @@ namespace test_dbms.src.file
                     contents[offset + 4 + i] = byteval[i];
             }
         }
-
-
-        internal void setString(int offset, int val)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

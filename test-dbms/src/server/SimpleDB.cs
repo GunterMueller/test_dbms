@@ -3,7 +3,7 @@ using test_dbms.src.log;
 using test_dbms.src.buffer;
 using test_dbms.src.tx;
 using test_dbms.src.metadata;
-
+using test_dbms.src.planner;
 
 namespace test_dbms.src.server
 {
@@ -24,10 +24,10 @@ namespace test_dbms.src.server
             Transaction tx = new Transaction();
             bool isnew = fm.isNew();
             if (isnew)
-                System.Console.WriteLine("creating new database");
+                System.Console.WriteLine("creating new database...");
             else
             {
-                System.Console.WriteLine("recovering existing database");
+                System.Console.WriteLine("recovering existing database...");
                 tx.recover();
             }
             initMetadataMgr(isnew, tx);
@@ -63,6 +63,13 @@ namespace test_dbms.src.server
         public static BufferMgr bufferMgr() { return bm; }
 
         public static MetadataMgr mdMgr() { return mdm; }
+
+        public static Planner planner()
+        {
+            QueryPlanner qplanner = new BasicQueryPlanner();
+            UpdatePlanner uplanner = new BasicUpdatePlanner();
+            return new Planner(qplanner, uplanner);
+        }
 
     }
 }

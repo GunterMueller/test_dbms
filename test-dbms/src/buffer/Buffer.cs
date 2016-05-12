@@ -31,7 +31,7 @@ namespace test_dbms.src.buffer
             modifiedBy = txnum;
             if(lsn >= 0)
                 logSequenceNumber = lsn;
-            contents.setString(offset, val);
+            contents.setInt(offset, val);
         }
 
         public void setString(int offset, string val, int txnum, int lsn)

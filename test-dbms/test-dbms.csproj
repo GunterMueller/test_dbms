@@ -84,6 +84,11 @@
     <Compile Include="src\parse\ModifyData.cs" />
     <Compile Include="src\parse\Parser.cs" />
     <Compile Include="src\parse\QueryData.cs" />
+    <Compile Include="src\planner\BasicQueryPlanner.cs" />
+    <Compile Include="src\planner\BasicUpdatePlanner.cs" />
+    <Compile Include="src\planner\Planner.cs" />
+    <Compile Include="src\planner\QueryPlanner.cs" />
+    <Compile Include="src\planner\UpdatePlanner.cs" />
     <Compile Include="src\query\Constant.cs" />
     <Compile Include="src\query\ConstantExpression.cs" />
     <Compile Include="src\query\Expression.cs" />
