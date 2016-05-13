@@ -31,6 +31,7 @@ namespace test_dbms.src.metadata
             if(isNew)
             {
                 createTable("tblcat", tcatSchema, tx);
+                createTable("fldcat", fcatSchema, tx);
             }
         }
 

@@ -45,7 +45,7 @@ namespace test_dbms.src.file
         {//获取指定偏移量offset处的整数值，一共是4个字节单元做“或运算”，小字节序
             lock(threadLock)
             {
-                return (int)(contents[offset] | contents[offset + 1] << 8 | contents[offset + 2] << 16 | contents[offset] << 24);
+                return (int)(contents[offset] | contents[offset + 1] << 8 | contents[offset + 2] << 16 | contents[offset + 3] << 24);
             }
         }
 

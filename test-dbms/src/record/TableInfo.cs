@@ -25,7 +25,7 @@ namespace test_dbms.src.record
             this.tblname = tblname;
             offsets = new Dictionary<string, int>();
             int pos = 0;
-            foreach(string fldname in schema.fields())
+            foreach (string fldname in schema.fields())
             {//表被创建时，在偏移量表中记录列名称和相应的偏移量
                 offsets.Add(fldname, pos);
                 pos += lengthInBytes(fldname);
