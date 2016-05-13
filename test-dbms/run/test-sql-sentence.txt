@@ -1,0 +1,129 @@
+SQL Sentences语句测试
+--------------------------------------------------------------------------
+
+1.查询初始化时建立的"tblcat"和"fldcat"
+
+select tblname,reclength from tblcat;
+select tblname,fldname,type,length,offset from fldcat;
+
+--------------------------------------------------------------------------
+
+2.建立"student"，"course"，"teacher"，"grade"四张表
+
+CREATE TABLE student (stu_id   VARCHAR(3),   stu_name VARCHAR(10),   stu_sex  INT,  stu_age  INT,  stu_number  VARCHAR( 10 )    );
+CREATE TABLE course (co_id    VARCHAR(3),   co_name VARCHAR(10),   co_credit  INT  );
+CREATE TABLE teacher (tea_id   VARCHAR(3),   tea_name VARCHAR(10),   tea_course_name  VARCHAR(10)    );
+CREATE TABLE grade(stuid   VARCHAR(3),   coid  VARCHAR(3),   teaid VARCHAR(3),   score  INT   );
+
+--------------------------------------------------------------------------
+
+3.插入数据
+
+(1)向'student'表中插入数据
+
+INSERT INTO student(stu_id, stu_name, stu_sex, stu_age, stu_number) VALUES('S1', 'Andrew', 0, 20, '2012012581');
+INSERT INTO student(stu_id, stu_name, stu_sex, stu_age, stu_number) VALUES('S2', 'Lily', 1, 22, '2012012612');
+INSERT INTO student(stu_id, stu_name, stu_sex, stu_age, stu_number) VALUES('S3', 'Charles', 0, 21, '2012012584');
+INSERT INTO student(stu_id, stu_name, stu_sex, stu_age, stu_number) VALUES('S4', 'Anna', 1, 21, '2012012620');
+INSERT INTO student(stu_id, stu_name, stu_sex, stu_age, stu_number) VALUES('S5', 'Michael', 0, 21, '2012012590');
+
+(2)向'course'表中插入数据
+
+INSERT INTO course(co_id, co_name, co_credit) VALUES('C1', 'Network', 4);
+INSERT INTO course(co_id, co_name, co_credit) VALUES('C2', 'Algorithm', 3);
+INSERT INTO course(co_id, co_name, co_credit) VALUES('C3', 'Program', 4);
+INSERT INTO course(co_id, co_name, co_credit) VALUES('C4', 'Literature', 2);
+INSERT INTO course(co_id, co_name, co_credit) VALUES('C5', 'Mathematics', 4);
+INSERT INTO course(co_id, co_name, co_credit) VALUES('C6', 'Engineering', 4);
+
+(3)向'teacher'表中插入数据
+
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T1', 'ZHANG', 'Network');
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T2', 'WANG', 'Algorithm');
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T3', 'ZHENG', 'Program');
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T4', 'LIU', 'Literature');
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T5', 'LI', 'Mathematics');
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T6', 'ZHU', 'Engineering');
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T7', 'WANG', 'Program');
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T8', 'WANG', 'Mathematics');
+INSERT INTO teacher(tea_id, tea_name, tea_course_name) VALUES('T9', 'ZHU', 'Program');
+
+
+
+(3)向'grade'表中插入数据
+
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S1', 'C1', 'T1', 90);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S1', 'C2', 'T2', 80);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S1', 'C3', 'T3', 75);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S1', 'C4', 'T4', 72);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S1', 'C5', 'T5', 80);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S1', 'C6', 'T6', 83);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S2', 'C1', 'T1', 85);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S2', 'C2', 'T2', 80);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S2', 'C3', 'T7', 83);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S2', 'C4', 'T4', 85);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S2', 'C5', 'T8', 83);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S2', 'C6', 'T6', 92);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S3', 'C1', 'T1', 100);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S3', 'C2', 'T2', 90);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S3', 'C3', 'T7', 86);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S3', 'C4', 'T4', 90);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S4', 'C2', 'T2', 85);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S4', 'C4', 'T4', 75);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S4', 'C5', 'T8', 80);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S5', 'C1', 'T1', 90);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S5', 'C3', 'T9', 76);
+INSERT INTO grade(stuid, coid, teaid, score) VALUES('S5', 'C6', 'T6', 83);
+
+--------------------------------------------------------------------------
+
+4.查询数据
+
+	(1)查询每张表所有字段的数据
+
+	SELECT stu_id, stu_name, stu_sex, stu_age, stu_number FROM student
+	SELECT co_id, co_name, co_credit FROM course
+	SELECT tea_id, tea_name, tea_course_name FROM teacher
+	SELECT stuid, coid, teaid, score FROM grade
+
+
+	(2)"AND"的两连接、三连接
+
+	SELECT stuid FROM grade WHERE stuid = 'S1';
+	SELECT stuid FROM grade WHERE stuid = 'S1' AND coid = 'C1';
+
+	SELECT stuid, coid FROM grade, course WHERE stuid = 'S1' AND co_id = coid AND score = 80;
+
+
+	(3)投影运算
+
+	SELECT stu_name, stu_number FROM student;
+	SELECT co_name, co_credit FROM course;
+
+
+	(4)多表连接、复杂查询
+	SELECT stu_name, coid, score FROM student, grade WHERE stu_id = stuid AND stuid = 'S4';
+
+	SELECT coid, score FROM grade, teacher WHERE teaid = tea_id AND tea_course_name = 'Program';
+
+	SELECT tea_name FROM grade, student, teacher WHERE stuid = stu_id AND teaid = tea_id AND stu_name = 'Andrew'
+
+
+--------------------------------------------------------------------------
+
+5.更改、删除数据
+
+	(1)更新数据
+
+	SElECT tea_id, tea_name, tea_course_name FROM teacher;
+	UPDATE teacher SET tea_name = 'MENG' WHERE tea_name = 'ZHU'
+	SElECT tea_id, tea_name, tea_course_name FROM teacher;
+
+
+	(2)删除数据
+
+	SElECT tea_id, tea_name, tea_course_name FROM teacher;
+	DELETE FROM teacher WHERE tea_course_name = 'Program'
+	SElECT tea_id, tea_name, tea_course_name FROM teacher;
+
+6.退出命令：EXIT、帮助命令：HELP
