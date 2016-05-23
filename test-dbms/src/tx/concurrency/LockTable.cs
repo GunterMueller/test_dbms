@@ -47,7 +47,8 @@ namespace test_dbms.src.tx.cocurrency
                     }
                     if (hasXLock(blk))//MAX_TIME后还有 X 锁就抛出异常
                         throw new LockAbortException();
-                    int val = getLockVal(blk);//没有 X 锁的话就可以加 S 锁，若blk不存在就加blk，并将字典相应值置为0
+                    //没有 X 锁的话就可以加 S 锁，若blk不存在就加blk，并将字典相应值置为0
+                    int val = getLockVal(blk);
                     locks[blk] = val + 1;
                 }catch(ThreadInterruptedException)
                 {

@@ -21,9 +21,9 @@ namespace test_dbms.src.query
         }
 
         public bool next()
-        {
+        {//判断predicate->Term->Expression中计算Scan的值是否相等
             while (s.next())
-                if (pred.isSatisfied(s))//判断predicate->Term->Expression中计算Scan的值是否相等
+                if (pred.isSatisfied(s))
                     return true;
             return false;
         }

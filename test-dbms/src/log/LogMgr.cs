@@ -62,16 +62,17 @@ namespace test_dbms.src.log
             lock(threadLock)
             {
                 int recsize = Page.INT_SIZE;
-
+                //调用此类自定义的size方法计算当前混合序列的大小再加上保存一个整数值
                 foreach (object obj in rec)
-                    recsize += size(obj);//调用此类自定义的size方法计算当前混合序列的大小再加上保存一个整数值
+                    recsize += size(obj);
                 if(currentpos + recsize >= Page.BLOCK_SIZE)
-                {
+                {//若混合序列和整数值大小加上当前指针大小大于一个块，那么将之前的内容写到磁盘上，然后新建一个块
                     flush();
                     appendNewBlock();
-                }//若混合序列和整数值大小加上当前指针大小大于一个块，那么将之前的内容写到磁盘上，然后新建一个块
+                }
+                //把每个混合序列（一条日志记录）中的obj对象写到新创建的块上
                 foreach (object obj in rec)
-                    appendVal(obj);//把每个混合序列（一条日志记录）中的obj对象写到新创建的块上
+                    appendVal(obj);
                 finalizeRecord();
                 return currentLSN();
             }

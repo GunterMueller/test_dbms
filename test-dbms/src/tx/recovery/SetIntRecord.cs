@@ -52,8 +52,10 @@ namespace test_dbms.src.tx.recovery
         public override void undo(int txnum)
         {
             BufferMgr buffMgr = SimpleDB.bufferMgr();
-            Buffer buff = buffMgr.pin(blk);//将块绑定到（读入）缓冲区
-            buff.setInt(offset, val, txnum, -1);//LSN为负数，生成一条临时日志记录，不保存到磁盘
+            //将块绑定到（读入）缓冲区
+            Buffer buff = buffMgr.pin(blk);
+            //LSN为负数，生成一条临时日志记录，不保存到磁盘
+            buff.setInt(offset, val, txnum, -1);
             buffMgr.unpin(buff);
         }
 

@@ -23,7 +23,8 @@ namespace test_dbms.src.planner
         }
 
         public int executeUpdate(string cmd, Transaction tx)
-        {//执行一个SQL insert、delete、modify 或者 create 语句，此函数根据语法分析器返回的结果，使用相应的更新计划器返回计算结果
+        {/* 执行一个SQL insert、delete、modify 或者 create 语句，
+            此函数根据语法分析器返回的结果，使用相应的更新计划器返回计算结果*/
             Parser parser = new Parser(cmd);
             object obj = parser.updateCmd();
 

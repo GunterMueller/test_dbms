@@ -25,8 +25,9 @@ namespace test_dbms.src.tx.cocurrency
         }
 
         public void xLock(Block blk)
-        {//若当前只有一个sLock会总是竞争不过xLock的，有可能导致饥饿，所以已经设置MAX_TIME来确定阈值，超过的直接抛异常
-            if(!hasXLock(blk))
+        {/* 若当前只有一个sLock会总是竞争不过xLock的，有可能导致饥饿，
+            所以已经设置MAX_TIME来确定阈值，超时的直接抛异常 */
+            if (!hasXLock(blk))
             {//如果没有 X 锁的话
                 sLock(blk);//先上 S 锁
                 locktbl.xLock(blk);//再上 X 锁

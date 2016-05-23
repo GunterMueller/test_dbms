@@ -11,7 +11,7 @@ namespace test_dbms.src.planner
 
         public Plan createPlan(QueryData data, Transaction tx)
         {
-            //第一步：为每一个出现的 表 或者 视图 创建一个plan
+            //第一步：为每一个出现的表或者视图定义创建一个plan
             List<Plan> plans = new List<Plan>();
             foreach(string tblname in data.tables())
             {

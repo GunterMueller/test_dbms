@@ -20,13 +20,15 @@ namespace test_dbms.src.query
         }
 
         public bool next()
-        {//将scan s2移动到RHS记录的下一条，如果没有的话，则将scan s1移动到下一条并且将RHS定位到第一条
-            if (s2.next())
+        {/* 将scan s2移动到RHS记录的下一条，如果没有的话，
+            则将scan s1移动到下一条，并且将RHS定位到第一条 */    
+           if (s2.next())
                 return true;
             else
             {
                 s2.beforeFirst();
-                return s2.next() && s1.next();//没有LHS记录的话就返回false
+                //没有LHS记录的话就返回false
+                return s2.next() && s1.next();
             }
         }
 

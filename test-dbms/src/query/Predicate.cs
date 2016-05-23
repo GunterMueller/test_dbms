@@ -73,7 +73,7 @@ namespace test_dbms.src.query
             return null;
         }
 
-        public string equatesWihField(string fldname)
+        public string equatesWithField(string fldname)
         {//判断term是否形如“F1=F2”，其中F1如果是指定的fldname，而F2是另外一个值，就返回F2字段名称
             foreach(Term t in terms)
             {

@@ -17,14 +17,20 @@ namespace test_dbms.src.tx.recovery
 
         public void commit()
         {//写一个COMMIT记录到日志，然后将这个日志记录写回磁盘
-            SimpleDB.bufferMgr().flushAll(txnum);//所有被当前该事务修改过的脏数据页，先写“修改日志”到磁盘，再将脏页写回磁盘
-            int lsn = new CommitRecord(txnum).writeToLog();//写一个COMMIT记录到日志
-            SimpleDB.logMgr().flush(lsn);//将该日志写回磁盘
+
+            //所有被当前该事务修改过的脏数据页，先写“修改日志”到磁盘，再将脏页写回磁盘
+            SimpleDB.bufferMgr().flushAll(txnum);
+            //写一个COMMIT记录到日志
+            int lsn = new CommitRecord(txnum).writeToLog();
+            //将该日志写回磁盘
+            SimpleDB.logMgr().flush(lsn);
         }
 
         public void rollback()
         {//写一个ROLLBACK日志，然后将这个日志记录写回磁盘
-            SimpleDB.bufferMgr().flushAll(txnum);//所有被当前该事务修改过的脏数据页的“修改日志”写回磁盘，再将脏页写回磁盘
+
+            //所有被当前该事务修改过的脏数据页的“修改日志”写回磁盘，再将脏页写回磁盘
+            SimpleDB.bufferMgr().flushAll(txnum);
             doRollback();//回滚当前事务直到看到START日志记录
             int lsn = new RollbackRecord(txnum).writeToLog();
             SimpleDB.logMgr().flush(lsn);
@@ -65,7 +71,8 @@ namespace test_dbms.src.tx.recovery
         }
 
         private void doRollback()
-        {//从后往前回滚所有和当前事务T相关的日志记录，在磁盘中恢复原状旧值（setint、setstring），直到找到日志记录<START>为止
+        {/* 从后往前回滚所有和当前事务T相关的日志记录，在磁盘中恢复原状旧值
+            （setint、setstring），直到找到日志记录<START>为止 */
             LogRecordIterator iter = new LogRecordIterator();
             while(iter.MoveNext())
             {
@@ -80,7 +87,8 @@ namespace test_dbms.src.tx.recovery
         }
 
         private void doRecover()
-        {//数据库的完全恢复操作：找到一个未完成事务的日志记录，就会撤销记录恢复旧值，一直到遇见检查点或者日志结束停止
+        {/* 数据库的完全恢复操作：找到一个未完成事务的日志记录，
+            就会撤销记录恢复旧值，一直到遇见检查点或者日志结束停止 */
             List<int> finishedTxs = new List<int>();
             LogRecordIterator iter = new LogRecordIterator();
             while(iter.MoveNext())

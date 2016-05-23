@@ -12,7 +12,7 @@ namespace test_dbms.src.query
         {
             this.p = p;
             foreach (string fldname in fieldlist)
-                sch.add(fldname, p.schema());
+                sch.add(fldname, p.schema());//添加指定fieldlist中所有字段的模式信息到当前ProjectPlan的模式来
         }
 
         public Scan open()
